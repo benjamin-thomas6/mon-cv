@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="CV de Benjamin THOMAS, élève en 1ère CIEL à la recherche d'un job étudiant">
+  <title>CV - Benjamin THOMAS</title>
+
+  <style>
+    :root {
+      --bleu: #164e70;
+      --bleu-clair: #eaf4f8;
+      --bleu-fonce: #0d344b;
+      --gris: #66727a;
+      --texte: #24313a;
+      --blanc: #ffffff;
+      --fond: #eef2f5;
+      --bordure: #dbe3e8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--fond);
+      color: var(--texte);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .cv {
+      max-width: 1050px;
+      margin: 35px auto;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      background: var(--blanc);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      min-height: 100vh;
+    }
+
+    /* Colonne gauche */
+    .sidebar {
+      background: linear-gradient(160deg, var(--bleu), var(--bleu-fonce));
+      color: var(--blanc);
+      padding: 35px 25px;
+    }
+
+    .profil {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .photo {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--blanc);
+      margin-bottom: 15px;
+    }
+
+    .profil h1 {
+      font-size: 25px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .profil p {
+      margin-top: 6px;
+      color: #d8edf5;
+      font-size: 15px;
+    }
+
+    .sidebar-section {
+      margin-top: 28px;
+    }
+
+    .sidebar-section h2 {
+      font-size: 17px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      padding-bottom: 8px;
+      margin-bottom: 13px;
+    }
+
+    .contact p {
+      margin-bottom: 10px;
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .sidebar ul {
+      padding-left: 20px;
+      font-size: 14px;
+    }
+
+    .sidebar li {
+      margin-bottom: 7px;
+    }
+
+    /* Contenu principal */
+    .content {
+      padding: 45px;
+    }
+
+    .intro {
+      border-bottom: 3px solid var(--bleu);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+
+    .intro h1 {
+      color: var(--bleu);
+      font-size: 38px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .intro h2 {
+      color: var(--gris);
+      font-size: 20px;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 7px 13px;
+      background: var(--bleu-clair);
+      color: var(--bleu);
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: var(--bleu);
+      font-size: 22px;
+      border-bottom: 2px solid var(--bordure);
+      padding-bottom: 7px;
+      margin-bottom: 17px;
+    }
+
+    .section p {
+      font-size: 15px;
+    }
+
+    .formation,
+    .experience {
+      margin-bottom: 20px;
+      padding-left: 18px;
+      border-left: 4px solid var(--bleu-clair);
+    }
+
+    .formation h3,
+    .experience h3 {
+      color: var(--bleu-fonce);
+      font-size: 17px;
+    }
+
+    .date {
+      color: var(--gris);
+      font-size: 14px;
+      font-style: italic;
+      margin: 3px 0 7px;
+    }
+
+    .content ul {
+      padding-left: 20px;
+      font-size: 15px;
+    }
+
+    .content li {
+      margin-bottom: 5px;
+    }
+
+    .disponibilites {
+      background: var(--bleu-clair);
+      border-radius: 8px;
+      padding: 18px 20px;
+    }
+
+    .disponibilites strong {
+      color: var(--bleu-fonce);
+    }
+
+    .qr-code {
+      text-align: center;
+      margin-top: 35px;
+      padding: 20px;
+      background: #f7f9fa;
+      border: 1px solid var(--bordure);
+      border-radius: 8px;
+    }
+
+    .qr-code h2 {
+      color: var(--bleu);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    #qrcode {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px;
+      background: white;
+    }
+
+    .print-button {
+      display: block;
+      width: max-content;
+      margin: 25px auto 0;
+      padding: 11px 18px;
+      border: none;
+      border-radius: 5px;
+      background: var(--bleu);
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .print-button:hover {
+      background: var(--bleu-fonce);
+    }
+
+    /* Adaptation mobile */
+    @media screen and (max-width: 760px) {
+      .cv {
+        display: block;
+        margin: 0;
+      }
+
+      .sidebar,
+      .content {
+        padding: 28px 22px;
+      }
+
+      .intro h1 {
+        font-size: 30px;
+      }
+
+      .intro h2 {
+        font-size: 17px;
+      }
+    }
+
+    /* Impression papier */
+    @media print {
+      body {
+        background: white;
+      }
+
+      .cv {
+        margin: 0;
+        box-shadow: none;
+      }
+
+      .print-button {
+        display: none;
+      }
+
+      .qr-code {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="cv">
+
+    <!-- Colonne gauche -->
+    <aside class="sidebar">
+
+      <div class="profil">
+        <!-- Remplace photo.jpg par le nom de ta photo -->
+        <img src="photo.jpg" alt="Photo de Benjamin THOMAS" class="photo">
+
+        <h1>Benjamin<br>THOMAS</h1>
+        <p>Élève de seconde</p>
+      </div>
+
+      <div class="sidebar-section contact">
+        <h2>Contact</h2>
+
+        <p>📍 [Pont-Sainte-Maxence, France]</p>
+        <p>📞 [07 67 74 22 66]</p>
+        <p>
+          ✉️
+          <a href="mailto:benjamin.thomas@email.com">
+            benjamin.thomas56500@gmail.com
+          </a>
+        </p>
+        <p>🎂 Né le: 02/01/2010</p>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Qualités</h2>
+        <ul>
+          <li>Sérieux</li>
+          <li>Motivé</li>
+          <li>Ponctuel</li>
+          <li>Autonome</li>
+          <li>À l'écoute</li>
+          <li>Esprit d'équipe</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Compétences</h2>
+        <ul>
+          <li>Utilisation d'un ordinateur</li>
+          <li>Respect des consignes</li>
+          <li>Organisation du travail</li>
+          <li>Premières notions en informatique</li>
+          <li>Communication</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h2>Langues</h2>
+        <ul>
+          <li>Français : langue maternelle</li>
+          <li>Anglais : niveau scolaire</li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- Contenu principal -->
+    <section class="content">
+
+      <header class="intro">
+        <h1>Benjamin THOMAS</h1>
+        <h2>Futur élève de 1ère CIEL</h2>
+
+        <span class="badge">
+          Recherche d'un job étudiant
+        </span>
+      </header>
+
+      <section class="section">
+        <h2>Profil</h2>
+
+        <p>
+          Élève sérieux, motivé et volontaire, je vais intégrer une classe de
+          <strong>1ère CIEL — Cybersécurité, Informatique et Réseaux,
+          Électronique</strong> à la rentrée prochaine.
+        </p>
+
+        <br>
+
+        <p>
+          Je recherche un job étudiant afin d'acquérir une première expérience
+          professionnelle, développer mon autonomie et financer mes projets
+          personnels. Ponctuel, à l'écoute et prêt à apprendre, je suis capable
+          de m'adapter rapidement aux missions qui me sont confiées.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>Formation</h2>
+
+        <div class="formation">
+          <h3>Classe de 1ère CIEL</h3>
+          <p class="date">À partir de septembre prochain</p>
+          <p>
+            Lycée Mireille Grennet — Compiègne
+          </p>
+          <ul>
+            <li>Informatique et réseaux</li>
+            <li>Cybersécurité</li>
+            <li>Électronique</li>
+            <li>Communication professionnelle</li>
+          </ul>
+        </div>
+
+        <div class="formation">
+          <h3>Classe de seconde</h3>
+          <p class="date">Année scolaire 2025/2026</p>
+          <p>
+            Lycée Mireille Grennet — Compiègne
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Expériences et activités</h2>
+
+        <div class="experience">
+          <h3>Projets scolaires</h3>
+          <ul>
+            <li>Réalisation de travaux en groupe.</li>
+            <li>Présentation orale de projets.</li>
+            <li>Utilisation d'outils informatiques.</li>
+            <li>Recherche et organisation d'informations.</li>
+            <li>Respect des délais et des consignes.</li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <h3>Expériences personnelles</h3>
+          <ul>
+            <li>Aide informatique auprès de proches</li>
+            <li>Autre expérience ou responsabilité personnelle</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Centres d'intérêt</h2>
+
+        <p>
+          Informatique, nouvelles technologies, cybersécurité, réseaux,
+          jeux vidéo, football, musique et lecture.
+        </p>
+      </section>
+
+      <section class="section disponibilites">
+        <h2>Disponibilités</h2>
+
+        <p>
+          <strong>Disponibilités :</strong>
+          week-ends, et vacances scolaires.
+        </p>
+
+        <p>
+          <strong>Mobilité :</strong>
+          à pied / en transports en commun.
+        </p>
+      </section>
+
+      <!-- QR code vers la page en ligne -->
+      <div class="qr-code">
+        <h2>Consulter mon CV en ligne</h2>
+        <p>Scannez ce QR code avec votre téléphone.</p>
+
+        <div id="qrcode"></div>
+      </div>
+
+      <button class="print-button" onclick="window.print()">
+        Imprimer ou enregistrer en PDF
+      </button>
+
+    </section>
+  </main>
+
+  <!-- Bibliothèque permettant de générer le QR code -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+  <script>
+    /*
+      Remplace cette adresse par l'adresse publique de ta page.
+
+      Exemple :
+      https://ton-nom.github.io/mon-cv/
+    */
+    const adresseDuCV = "file:///C:/Users/Benjamin/Desktop/mon-cv/index";
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: adresseDuCV,
+      width: 170,
+      height: 170,
+      colorDark: "#164e70",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
+
+</body>
+</html>
